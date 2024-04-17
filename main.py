@@ -16,6 +16,9 @@ clock = pygame.time.Clock()
 
 gameIsRunning = True
 
+ball_x = 100
+ball_y = 100
+
 # Game loop
 while gameIsRunning:
     # Event handling
@@ -26,8 +29,11 @@ while gameIsRunning:
 		# Clear the screen
     screen.fill((0, 0, 0))
 
-    pygame.draw.circle(screen, (255, 255, 255), (100, 100), 20)
-    
+    ball_x = ball_x + 1
+    ball_y = ball_y + 1
+
+    pygame.draw.circle(screen, (255, 255, 255), (ball_x, ball_y), 20)
+
     # Flip the display
     pygame.display.flip()
 
