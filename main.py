@@ -26,6 +26,8 @@ while gameIsRunning:
 		# Clear the screen
     screen.fill((0, 0, 0))
 
+    pygame.draw.circle(screen, (255, 255, 255), (100, 100), 20)
+    
     # Flip the display
     pygame.display.flip()
 
