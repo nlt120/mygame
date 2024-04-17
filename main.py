@@ -22,15 +22,8 @@ ball_y = 100
 dx = 3
 dy = 3
 
-# Game loop
-while gameIsRunning:
-    # Event handling
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            gameIsRunning = False
-
-		# Clear the screen
-    screen.fill((0, 0, 0))
+def updateWorld():
+    global ball_x, ball_y, dx, dy
 
     ball_x = ball_x + dx
     ball_y = ball_y + dy
@@ -40,8 +33,25 @@ while gameIsRunning:
 
     if ball_y + 20 >= 600 or ball_y - 20 <= 0:
         dy = -dy
-        
+
+def drawScene():
     pygame.draw.circle(screen, (255, 255, 255), (ball_x, ball_y), 20)
+
+# Game loop
+while gameIsRunning:
+    # Event handling
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            gameIsRunning = False
+
+    # Clear the screen
+    screen.fill((0, 0, 0))
+
+    # Update the world
+    updateWorld()
+
+    # Draw the scene
+    drawScene()
 
     # Flip the display
     pygame.display.flip()
